@@ -4,7 +4,7 @@
   "description": "This project was built with the purpose to be a challenge for the second step of a hiring process",
   "directories": {
     "doc": "docs",
-    "test": "tests"
+    "test": "test"
   },
   "scripts": {
     "test": "jest",
