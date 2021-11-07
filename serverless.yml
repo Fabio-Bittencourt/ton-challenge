@@ -8,8 +8,11 @@ provider:
 
 functions:
   hello:
-    handler: handler.hello
+    handler: src/entrypoint/handler.hello
     events:
       - httpApi:
           path: /
           method: get
+
+plugins:
+  - serverless-offline
