@@ -1,0 +1,48 @@
+{
+  "name": "ton-challenge",
+  "version": "1.0.0",
+  "description": "This project was built with the purpose to be a challenge for the second step of a hiring process",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "serverless offline start --host 0.0.0.0 --printOutput",
+    "release": "standard-version",
+    "lint": "eslint src/ lib/ test/",
+    "lint:fix": "eslint --fix src/ lib/ test/",
+    "commit": "git-cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fabio-Bittencourt/ton-challenge.git"
+  },
+  "author": "Fabio Espindola Bittencourt (ebittencourt.dev)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fabio-Bittencourt/ton-challenge/issues"
+  },
+  "homepage": "https://github.com/Fabio-Bittencourt/ton-challenge#readme",
+  "dependencies": {
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.3.1",
+    "prettier": "^2.4.1",
+    "serverless": "^2.65.0",
+    "serverless-offline": "^8.2.0",
+    "standard-version": "^9.3.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
