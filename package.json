@@ -12,7 +12,8 @@
     "release": "standard-version",
     "lint": "eslint src/ test/",
     "lint:fix": "eslint --fix src/ test/",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "sequelize": "sequelize"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,12 @@
   },
   "homepage": "https://github.com/Fabio-Bittencourt/ton-challenge#readme",
   "dependencies": {
+    "countapi-js": "^1.0.2",
+    "http-status": "^1.5.0",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.9.0",
+    "sequelize-cli": "^6.3.0",
     "winston": "^3.3.3"
   },
   "devDependencies": {
