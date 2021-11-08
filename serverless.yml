@@ -7,16 +7,13 @@ provider:
   lambdaHashingVersion: '20201221'
 
 functions:
-  hello:
-    handler: src/entrypoint/handler.hello
+  increment:
+    handler: src/entrypoint/AccessCounter/counter.add
     events:
       - httpApi:
-          path: /
+          path: /counter
           method: get
-
-plugins:
-  - serverless-offline
-
-custom:
-  serverless-offline:
-    useDocker: true
+          request:
+            parameters:
+              querystrings:
+                url: string

@@ -95,5 +95,4 @@ if (isProd) {
   );
 }
 
-export { logger };
-export default logger;
+module.exports = { logger };

@@ -13,7 +13,7 @@ const { hostname, arch, cpus, platform, totalmem } = require('os');
  * @constant
  * @type {boolean}
  * */
-export const isProd = process.env.NODE_ENV === 'production';
+const isProd = process.env.NODE_ENV === 'production';
 
 /**
  * Log level for default logger
@@ -22,7 +22,7 @@ export const isProd = process.env.NODE_ENV === 'production';
  * @constant
  * @type {string}
  */
-export const logLevel = process.env.LOG_LEVEL || (isProd ? 'info' : 'silly');
+const logLevel = process.env.LOG_LEVEL || (isProd ? 'info' : 'silly');
 
 /**
  * The service name
@@ -31,7 +31,7 @@ export const logLevel = process.env.LOG_LEVEL || (isProd ? 'info' : 'silly');
  * @constant
  * @type {string}
  */
-export const serviceName = process.env.SERVICE_NAME || 'unspecified';
+const serviceName = process.env.SERVICE_NAME || 'unspecified';
 
 /**
  * The region the service is running.
@@ -42,7 +42,7 @@ export const serviceName = process.env.SERVICE_NAME || 'unspecified';
  * @constant
  * @type {string}
  */
-export const region =
+const region =
   process.env.AWS_REGION ||
   process.env.AWS_DEFAULT_REGION ||
   process.env.REGION ||
@@ -55,13 +55,17 @@ export const region =
  * @constant
  * @type {Object.<string, any>}
  */
-export const defaultMeta = {
-  region,
-  service: serviceName,
-  host: hostname(),
-  arch: arch(),
-  cpus: cpus().length,
-  platform: platform(),
-  totalmem: `${parseInt(totalmem() / 1000.0 ** 2, 10)}MB`,
-  category: 'no-category',
+module.exports = {
+  defaultMeta: {
+    region,
+    service: serviceName,
+    host: hostname(),
+    arch: arch(),
+    cpus: cpus().length,
+    platform: platform(),
+    totalmem: `${parseInt(totalmem() / 1000.0 ** 2, 10)}MB`,
+    category: 'no-category',
+  },
+  logLevel,
+  isProd,
 };
