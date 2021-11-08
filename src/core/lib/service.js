@@ -4,7 +4,7 @@
  * @module lib/service
  */
 
-import { hostname, arch, cpus, platform, totalmem } from 'os';
+const { hostname, arch, cpus, platform, totalmem } = require('os');
 
 /**
  * Returns true when NODE_ENV is set to production

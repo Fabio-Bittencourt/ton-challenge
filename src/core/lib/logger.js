@@ -4,8 +4,8 @@
  * @module lib/logger
  */
 
-import { format, createLogger, transports } from 'winston';
-import { isProd, defaultMeta, logLevel } from './service';
+const { format, createLogger, transports } = require('winston');
+const { isProd, defaultMeta, logLevel } = require('./service');
 
 /**
  * Creates a derived logger using winston.createLogger.
