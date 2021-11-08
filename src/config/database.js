@@ -1,24 +1,27 @@
-module.exports = {
-  development: {
-    dialect: 'postgres',
-    username: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE,
-    host: process.env.DB_HOST,
-    define: {
-      timestamps: true,
-      underscored: true,
-    },
-  },
-  production: {
-    dialect: 'postgres',
-    username: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE,
-    host: process.env.DB_HOST,
-    define: {
-      timestamps: true,
-      underscored: true,
-    },
+const { isProd } = require('../core/lib/service');
+
+const development = {
+  dialect: 'postgres',
+  username: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  host: process.env.DB_HOST,
+  define: {
+    timestamps: true,
+    underscored: true,
   },
 };
+
+const production = {
+  dialect: 'postgres',
+  username: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  host: process.env.DB_HOST,
+  define: {
+    timestamps: true,
+    underscored: true,
+  },
+};
+
+module.exports = isProd ? production : development;

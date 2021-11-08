@@ -1,9 +1,7 @@
 const { Sequelize } = require('sequelize');
 const { logger } = require('./logger');
-const { isProd } = require('./service');
-const { production, development } = require('../../config/database');
+const env = require('../../config/database');
 
-const env = isProd ? production : development;
 const client = new Sequelize(env);
 
 module.exports = {
