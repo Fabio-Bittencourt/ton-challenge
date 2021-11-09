@@ -1,9 +1,11 @@
 version: '3.7'
 
+volumes:
+  db-data:
+    driver: local
+
 services:
-  app:
-    hostname: app
-    env_file: .env.example
+  base: &base
     tty: true
     stdin_open: true
     user: '1000'
@@ -12,8 +14,56 @@ services:
       target: development
     volumes:
       - ./:/app
+    env_file: .env.example
+
+  app:
+    <<: *base
+    hostname: app
+    environment:
+      NODE_ENV: development
+      NODE_PATH: '.'
+      DB_HOST: 'db'
+      DB_DATABASE: challenge
+      DB_USER: 'postgres'
+      DB_PASSWORD: 'ton@1234'
     ports:
       - 3000:3000
       - 3001:3001
       - 3002:3002
       - 9229:9229
+    depends_on:
+      - db
+
+  test:
+    <<: *base
+    hostname: test
+    environment:
+      NODE_ENV: test
+      NODE_PATH: '.'
+      DB_HOST: 'db'
+      DB_DATABASE: challenge
+      DB_USER: 'postgres'
+      DB_PASSWORD: 'ton@1234'
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+
+  db:
+    hostname: db
+    image: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: 'ton@1234'
+
+  pgadmin4:
+    hostname: pgadmin4
+    image: dpage/pgadmin4
+    ports:
+     - 6003:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: 'fabio@ebittencourt.dev'
+      PGADMIN_DEFAULT_PASSWORD: 'ton@1234'
+    depends_on:
+      - db
