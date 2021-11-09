@@ -1,4 +1,4 @@
-const { isProd } = require('../core/lib/service');
+const { isProd } = require('../core/lib/environment');
 
 const development = {
   dialect: 'postgres',

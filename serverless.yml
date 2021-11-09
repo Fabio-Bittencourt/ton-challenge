@@ -8,7 +8,7 @@ provider:
 
 functions:
   increment:
-    handler: src/entrypoint/AccessCounter/counter.add
+    handler: src/api/accessCounter/app.handler
     events:
       - httpApi:
           path: /counter

@@ -1,7 +1,7 @@
 /**
  * Provides constants on initialization for managing the environment
  *
- * @module lib/service
+ * @module lib/environment
  */
 
 const { hostname, arch, cpus, platform, totalmem } = require('os');

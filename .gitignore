@@ -5,3 +5,6 @@ coverage/
 
 # Serverless directories
 .serverless
+
+error.log
+debug.log

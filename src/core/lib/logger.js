@@ -5,7 +5,7 @@
  */
 
 const { format, createLogger, transports } = require('winston');
-const { isProd, defaultMeta, logLevel } = require('./service');
+const { isProd, defaultMeta, logLevel } = require('./environment');
 
 /**
  * Creates a derived logger using winston.createLogger.
