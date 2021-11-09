@@ -56,3 +56,14 @@ services:
       - db-data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: 'ton@1234'
+
+  pgadmin4:
+    hostname: pgadmin4
+    image: dpage/pgadmin4
+    ports:
+     - 6003:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: 'fabio@ebittencourt.dev'
+      PGADMIN_DEFAULT_PASSWORD: 'ton@1234'
+    depends_on:
+      - db
