@@ -33,5 +33,16 @@ functions:
     handler: src/api/register/user/create/app.handler
     events:
       - httpApi:
-          path: /register/
+          path: /user/
           method: post
+
+  getUser:
+    handler: src/api/register/user/get/app.handler
+    events:
+      - httpApi:
+          path: /user/show
+          method: get
+          request:
+            parameters:
+              querystrings:
+                email: string

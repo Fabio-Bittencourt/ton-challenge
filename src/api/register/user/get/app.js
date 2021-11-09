@@ -1,13 +1,13 @@
 const { logger } = require('../../../../core/lib/logger');
 const { connection } = require('../../../../core/services/sequelize');
-const { create } = require('../../controller');
+const { getOne } = require('../../controller');
 
 module.exports.handler = async (event) => {
-  const { body } = event;
-  logger.info('::Lambda Register Create has been started::');
+  const { email } = event.queryStringParameters;
+  logger.info('::Lambda Register Get has been started::');
   try {
     connection();
-    const result = await create(body);
+    const result = await getOne(email);
     return {
       statusCode: 200,
       body: JSON.stringify({
@@ -15,7 +15,7 @@ module.exports.handler = async (event) => {
       }),
     };
   } catch (error) {
-    logger.error('::Lambda Register Create return a Error::', error);
+    logger.error('::Lambda Register Get return a Error::', error);
     throw error;
   }
 };
