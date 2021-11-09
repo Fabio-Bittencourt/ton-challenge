@@ -8,7 +8,6 @@ const development = {
   host: process.env.DB_HOST,
   define: {
     timestamps: true,
-    underscored: true,
   },
 };
 
@@ -20,7 +19,6 @@ const production = {
   host: process.env.DB_HOST,
   define: {
     timestamps: true,
-    underscored: true,
   },
 };
 

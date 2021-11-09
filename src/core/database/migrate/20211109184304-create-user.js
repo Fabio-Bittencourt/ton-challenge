@@ -1,18 +1,27 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('CounterRegisters', {
+    await queryInterface.createTable('Users', {
       id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
+        allowNull: false,
         autoIncrement: true,
-        allowNull: false,
+        primaryKey: true,
+        type: Sequelize.INTEGER,
       },
-      url: {
+      firstName: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      key: {
+      lastName: {
         type: Sequelize.STRING,
+        allowNull: false,
+      },
+      email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+      },
+      birthDate: {
+        type: Sequelize.DATE,
         allowNull: false,
       },
       createdAt: {
@@ -25,8 +34,7 @@ module.exports = {
       },
     });
   },
-
   down: async (queryInterface) => {
-    await queryInterface.dropTable('CounterRegisters');
+    await queryInterface.dropTable('Users');
   },
 };

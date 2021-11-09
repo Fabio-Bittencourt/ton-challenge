@@ -28,3 +28,10 @@ functions:
             parameters:
               querystrings:
                 url: string
+
+  create:
+    handler: src/api/register/user/create/app.handler
+    events:
+      - httpApi:
+          path: /register/
+          method: post

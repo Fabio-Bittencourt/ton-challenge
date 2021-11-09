@@ -1,4 +1,4 @@
-const CounterRegister = require('../../core/database/models/CounterRegisterAccess');
+const CounterRegister = require('../../core/database/models/CounterRegister');
 const { countAPI } = require('../../core/services/countAPI');
 const { logger } = require('../../core/lib/logger');
 
