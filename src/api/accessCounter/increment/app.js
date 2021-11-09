@@ -1,6 +1,6 @@
-const { logger } = require('../../core/lib/logger');
-const { connection } = require('../../core/services/sequelize');
-const { increment } = require('./controller');
+const { logger } = require('../../../core/lib/logger');
+const { connection } = require('../../../core/services/sequelize');
+const { increment } = require('../controller');
 
 module.exports.handler = async (event) => {
   const { url } = event.queryStringParameters;

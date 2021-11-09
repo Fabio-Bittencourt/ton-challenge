@@ -1,6 +1,6 @@
-const { handler } = require('../../../src/api/accessCounter/app');
+const { handler } = require('../../../../src/api/accessCounter/get/app');
 
-describe('AccessCounter::app::handler', () => {
+describe('AccessCounter::get::app::handler', () => {
   it('increment 1 access for a given URL', async () => {
     const event = {
       queryStringParameters: { url: 'ton.com.br' },
