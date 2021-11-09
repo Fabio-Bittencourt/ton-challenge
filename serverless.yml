@@ -8,10 +8,21 @@ provider:
 
 functions:
   increment:
-    handler: src/api/accessCounter/app.handler
+    handler: src/api/accessCounter/increment/app.handler
     events:
       - httpApi:
           path: /counter
+          method: get
+          request:
+            parameters:
+              querystrings:
+                url: string
+
+  get:
+    handler: src/api/accessCounter/get/app.handler
+    events:
+      - httpApi:
+          path: /counter/show
           method: get
           request:
             parameters:
