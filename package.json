@@ -13,7 +13,7 @@
     "lint": "eslint src/ test/",
     "lint:fix": "eslint --fix src/ test/",
     "commit": "git-cz",
-    "sequelize": "./node_modules/.bin/sequelize"
+    "migrate": "./node_modules/.bin/sequelize db:migrate"
   },
   "repository": {
     "type": "git",
