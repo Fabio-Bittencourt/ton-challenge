@@ -14,6 +14,9 @@ module.exports.handler = async (event) => {
     };
   } catch (error) {
     logger.error('::Lambda Register Get return a Error::', error);
-    throw error;
+    return {
+      statusCode: 500,
+      body: JSON.stringify(error),
+    };
   }
 };

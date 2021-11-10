@@ -1,4 +1,4 @@
-const { handler } = require('../../../../src/api/accessCounter/get/app');
+const { handler } = require('../../../../src/api/accessCounter/get/lambda');
 
 describe('AccessCounter::get::app::handler', () => {
   it('increment 1 access for a given URL', async () => {

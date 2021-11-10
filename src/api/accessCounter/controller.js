@@ -6,7 +6,7 @@ const handlerIncrementVisit = async ({ key }) => countAPI.hit(key);
 
 const handlerGetvisits = async ({ key }) => countAPI.get(key);
 
-const handleCreateAKey = async (url) => countAPI.create({ namespace: url});
+const handleCreateAKey = async (url) => countAPI.create({ namespace: url });
 
 const getKeyByURL = async (url) => {
   try {

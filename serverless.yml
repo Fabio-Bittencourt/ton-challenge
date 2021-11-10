@@ -4,11 +4,25 @@ frameworkVersion: '2'
 provider:
   name: aws
   runtime: nodejs12.x
+  region: us-east-1
+  stage: ${env:NODE_ENV}
   lambdaHashingVersion: '20201221'
+
+package:
+  exclude:
+    - node_modules/**
+    - test/**
+    - docs/**
+    - coverage/**
+    - .git/**
+    - .gitignore
+    - docker-compose.yml
+    - package-lock.json
+    - package.json
 
 functions:
   increment:
-    handler: src/api/accessCounter/increment/app.handler
+    handler: src/api/accessCounter/increment/lambda.handler
     events:
       - httpApi:
           path: /counter
@@ -19,7 +33,7 @@ functions:
                 url: string
 
   get:
-    handler: src/api/accessCounter/get/app.handler
+    handler: src/api/accessCounter/get/lambda.handler
     events:
       - httpApi:
           path: /counter/show
@@ -30,14 +44,14 @@ functions:
                 url: string
 
   create:
-    handler: src/api/register/user/create/app.handler
+    handler: src/api/register/user/create/lambda.handler
     events:
       - httpApi:
           path: /user/
           method: post
 
   getUser:
-    handler: src/api/register/user/get/app.handler
+    handler: src/api/register/user/get/lambda.handler
     events:
       - httpApi:
           path: /user/show
@@ -46,5 +60,6 @@ functions:
             parameters:
               querystrings:
                 email: string
+
 plugins:
   - serverless-offline

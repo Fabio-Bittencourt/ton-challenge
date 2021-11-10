@@ -1,4 +1,4 @@
-const { handler } = require('../../../../src/api/register/user/create/app');
+const { handler } = require('../../../../src/api/register/user/create/lambda');
 const { connection } = require('../../../../src/core/services/sequelize');
 const User = require('../../../../src/core/database/models/User');
 

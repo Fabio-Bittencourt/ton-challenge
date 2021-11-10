@@ -1,4 +1,4 @@
-const { handler } = require('../../../../src/api/register/user/get/app');
+const { handler } = require('../../../../src/api/register/user/get/lambda');
 const User = require('../../../../src/core/database/models/User');
 
 describe('Register::User::get::app::handler', () => {

@@ -1,4 +1,6 @@
-const { handler } = require('../../../../src/api/accessCounter/increment/app');
+const {
+  handler,
+} = require('../../../../src/api/accessCounter/increment/lambda');
 const CounterRegister = require('../../../../src/core/database/models/CounterRegister');
 const { connection } = require('../../../../src/core/services/sequelize');
 

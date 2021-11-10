@@ -1,6 +1,6 @@
 const { logger } = require('../../../core/lib/logger');
 const { connection } = require('../../../core/services/sequelize');
-const { increment } = require('../controller');
+const { get } = require('../controller');
 
 module.exports.handler = async (event) => {
   const { url } = event.queryStringParameters;
@@ -8,13 +8,16 @@ module.exports.handler = async (event) => {
   logger.info('::Lambda Access Counter has been started::');
   try {
     connection();
-    const result = await increment(url);
+    const result = await get(url);
     return {
       statusCode: 200,
       body: JSON.stringify(result),
     };
   } catch (error) {
     logger.error('::Lambda Access Counter return a Error::', error);
-    throw error;
+    return {
+      statusCode: 500,
+      body: JSON.stringify(error),
+    };
   }
 };
