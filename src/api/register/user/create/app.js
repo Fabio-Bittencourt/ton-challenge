@@ -7,12 +7,11 @@ module.exports.handler = async (event) => {
   logger.info('::Lambda Register Create has been started::');
   try {
     connection();
-    const result = await create(body);
+    const mapped = JSON.parse(body);
+    const result = await create(mapped);
     return {
       statusCode: 200,
-      body: JSON.stringify({
-        result,
-      }),
+      body: JSON.stringify(result),
     };
   } catch (error) {
     logger.error('::Lambda Register Create return a Error::', error);

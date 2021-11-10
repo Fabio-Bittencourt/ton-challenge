@@ -11,9 +11,7 @@ module.exports.handler = async (event) => {
     const result = await increment(url);
     return {
       statusCode: 200,
-      body: JSON.stringify({
-        result,
-      }),
+      body: JSON.stringify(result),
     };
   } catch (error) {
     logger.error('::Lambda Access Counter return a Error::', error);

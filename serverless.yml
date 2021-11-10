@@ -46,3 +46,5 @@ functions:
             parameters:
               querystrings:
                 email: string
+plugins:
+  - serverless-offline

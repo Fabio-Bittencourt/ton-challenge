@@ -10,9 +10,7 @@ module.exports.handler = async (event) => {
     const result = await getOne(email);
     return {
       statusCode: 200,
-      body: JSON.stringify({
-        result,
-      }),
+      body: JSON.stringify(result),
     };
   } catch (error) {
     logger.error('::Lambda Register Get return a Error::', error);
